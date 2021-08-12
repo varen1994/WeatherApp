@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-xcodebuild -workspace WeatherApp\ WeatherApp.xcworkspace \
+xcodebuild -workspace WeatherAppMain\ WeatherApp.xcworkspace \
             -scheme WeatherApp\ iOS \
             -destination platform=iOS\ Simulator,OS=13.3,name=iPhone\ 11 \
             clean test | xcpretty
