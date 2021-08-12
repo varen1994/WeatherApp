@@ -13,7 +13,9 @@ jobs:
         run: sudo xcode-select -switch /Applications/Xcode_11.3.app
       - name: working dir
         run: pwd
+      - name: all files
+        run: ls
       - name: Testing Swift package
-        run: exec WeatherApp/.github/scripts/test_swift_package.sh
+        run: exec ./.github/scripts/test_swift_package.sh
       - name: Testing iOS app
-        run: exec WeatherApp/.github/scripts/test_app.sh
+        run: exec /.github/scripts/test_app.sh
