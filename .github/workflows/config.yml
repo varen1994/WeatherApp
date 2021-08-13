@@ -11,15 +11,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Force XCode 11.3
-        run: sudo xcode-select -switch /Applications/Xcode_11.3.app
-      - name: working dir
-        run: pwd
-      - name: all files
-        run: exec ls
-      - name: run podfile
-        run: pod install
-      - name: Testing Swift package
-        run: exec ./.github/scripts/test_swift_package.sh
-      - name: Testing iOS app
-        run: exec ./.github/scripts/test_app.sh
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode_12.app
+      - name: Build and test
+        run: xcodebuild clean build test -workspace WeatherAppMain/WeatherApp.xcworkspace -scheme "WeatherApp" -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 11" ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO
+
+        xcodebuild clean build test -workspace WeatherAppMain/WeatherApp.xcworkspace -scheme
